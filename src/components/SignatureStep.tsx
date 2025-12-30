@@ -63,7 +63,7 @@ export function SignatureStep({
         <p className="text-muted-foreground">Colete as assinaturas para finalizar o documento</p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="flex flex-col gap-6">
         <SignatureCanvas label="Assinatura do Paciente/Responsável" onSignatureChange={onPatientSignatureChange} />
         <SignatureCanvas label="Assinatura do Técnico" onSignatureChange={onTechnicianSignatureChange} />
       </div>
