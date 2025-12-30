@@ -35,7 +35,7 @@
     --warning: 38 92% 50%;
     --warning-foreground: 0 0% 100%;
 
-    --success: 142 71% 45%;
+    --success: 214 51% 38%;
     --success-foreground: 0 0% 100%;
 
     --info: 199 89% 48%;
@@ -64,7 +64,7 @@
 
     --step-inactive: 220 10% 70%;
     --step-active: 214 51% 38%;
-    --step-complete: 142 71% 45%;
+    --step-complete: 214 51% 38%;
   }
 
   .dark {
@@ -95,7 +95,7 @@
     --warning: 38 92% 50%;
     --warning-foreground: 0 0% 100%;
 
-    --success: 142 71% 45%;
+    --success: 214 51% 38%;
     --success-foreground: 0 0% 100%;
 
     --border: 220 15% 22%;
@@ -138,7 +138,7 @@
   }
 
   .gradient-success {
-    background: linear-gradient(135deg, hsl(var(--success)) 0%, hsl(142 71% 35%) 100%);
+    background: linear-gradient(135deg, hsl(var(--success)) 0%, hsl(214 51% 30%) 100%);
   }
 
   .shadow-soft {
