@@ -18,9 +18,9 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b bg-card/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container flex flex-col items-center justify-center py-4">
-          <img src={imagoLogo} alt="Imago - Diagnóstico por Imagem" className="h-14 object-contain" />
-          <h1 className="font-display font-semibold text-lg text-foreground mt-2">Central de Questionário</h1>
+        <div className="flex flex-col items-center justify-center py-5">
+          <img src={imagoLogo} alt="Imago - Diagnóstico por Imagem" className="h-20 object-contain" />
+          <h1 className="font-display font-semibold text-base text-muted-foreground mt-3 tracking-wide">Central de Questionários</h1>
         </div>
       </header>
 
