@@ -17,7 +17,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 25% 10%;
 
-    --primary: 199 89% 48%;
+    --primary: 214 51% 38%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 210 20% 96%;
@@ -43,27 +43,27 @@
 
     --border: 214 20% 88%;
     --input: 214 20% 88%;
-    --ring: 199 89% 48%;
+    --ring: 214 51% 38%;
 
     --radius: 0.625rem;
 
     --sidebar-background: 220 25% 10%;
     --sidebar-foreground: 210 20% 95%;
-    --sidebar-primary: 199 89% 48%;
+    --sidebar-primary: 214 51% 38%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 20% 18%;
     --sidebar-accent-foreground: 210 20% 95%;
     --sidebar-border: 220 15% 20%;
-    --sidebar-ring: 199 89% 48%;
+    --sidebar-ring: 214 51% 38%;
 
     /* Custom tokens for clinical interface */
-    --exam-ct: 199 89% 48%;
+    --exam-ct: 214 51% 38%;
     --exam-mri: 280 65% 55%;
     --exam-densitometry: 162 63% 41%;
     --exam-mammography: 340 82% 52%;
 
     --step-inactive: 220 10% 70%;
-    --step-active: 199 89% 48%;
+    --step-active: 214 51% 38%;
     --step-complete: 142 71% 45%;
   }
 
@@ -77,7 +77,7 @@
     --popover: 220 25% 12%;
     --popover-foreground: 210 20% 95%;
 
-    --primary: 199 89% 48%;
+    --primary: 214 51% 38%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 20% 18%;
@@ -100,16 +100,16 @@
 
     --border: 220 15% 22%;
     --input: 220 15% 22%;
-    --ring: 199 89% 48%;
+    --ring: 214 51% 38%;
 
     --sidebar-background: 220 30% 6%;
     --sidebar-foreground: 210 20% 95%;
-    --sidebar-primary: 199 89% 48%;
+    --sidebar-primary: 214 51% 38%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 25% 14%;
     --sidebar-accent-foreground: 210 20% 95%;
     --sidebar-border: 220 20% 15%;
-    --sidebar-ring: 199 89% 48%;
+    --sidebar-ring: 214 51% 38%;
   }
 }
 
@@ -134,7 +134,7 @@
   }
 
   .gradient-primary {
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(199 89% 40%) 100%);
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(214 51% 30%) 100%);
   }
 
   .gradient-success {
