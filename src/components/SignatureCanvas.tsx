@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import { Canvas as FabricCanvas } from 'fabric';
+import { Canvas as FabricCanvas, PencilBrush } from 'fabric';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Eraser, RotateCcw } from 'lucide-react';
+import { RotateCcw } from 'lucide-react';
 
 interface SignatureCanvasProps {
   label: string;
@@ -15,11 +15,22 @@ export function SignatureCanvas({ label, onSignatureChange }: SignatureCanvasPro
 
   useEffect(() => {
     if (!canvasRef.current) return;
-    const canvas = new FabricCanvas(canvasRef.current, { width: 400, height: 150, backgroundColor: '#ffffff', isDrawingMode: true });
-    canvas.freeDrawingBrush.color = '#1a1a2e';
-    canvas.freeDrawingBrush.width = 2;
+    
+    const canvas = new FabricCanvas(canvasRef.current, { 
+      width: 400, 
+      height: 150, 
+      backgroundColor: '#ffffff'
+    });
+
+    const brush = new PencilBrush(canvas);
+    brush.color = '#1a1a2e';
+    brush.width = 2;
+    canvas.freeDrawingBrush = brush;
+    canvas.isDrawingMode = true;
+
     canvas.on('path:created', () => onSignatureChange(canvas.toDataURL({ format: 'png', multiplier: 1 })));
     setFabricCanvas(canvas);
+    
     return () => { canvas.dispose(); };
   }, []);
 
