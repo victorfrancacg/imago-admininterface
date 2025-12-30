@@ -1,12 +1,78 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { WorkflowStepper } from '@/components/WorkflowStepper';
+import { SearchReport } from '@/components/SearchReport';
+import { EditReport } from '@/components/EditReport';
+import { ReviewReport } from '@/components/ReviewReport';
+import { SignatureStep } from '@/components/SignatureStep';
+import { useReportWorkflow } from '@/hooks/useReportWorkflow';
+import { toast } from '@/hooks/use-toast';
+import { FileCheck, Stethoscope } from 'lucide-react';
 
 const Index = () => {
+  const workflow = useReportWorkflow();
+
+  const handleComplete = () => {
+    toast({ title: 'Relatório finalizado!', description: 'O documento foi salvo e o PDF gerado.' });
+    workflow.resetWorkflow();
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <header className="border-b bg-card/80 backdrop-blur-sm sticky top-0 z-50">
+        <div className="container flex items-center justify-between h-16">
+          <div className="flex items-center gap-3">
+            <div className="h-10 w-10 rounded-lg gradient-primary flex items-center justify-center">
+              <Stethoscope className="h-5 w-5 text-primary-foreground" />
+            </div>
+            <div>
+              <h1 className="font-display font-bold text-lg">Anamnese Clínica</h1>
+              <p className="text-xs text-muted-foreground">Painel do Técnico</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main className="container py-8">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <WorkflowStepper steps={workflow.steps} currentStep={workflow.currentStep} onStepClick={workflow.goToStep} />
+
+          {workflow.currentStep === 1 && <SearchReport onSelectReport={workflow.selectReport} />}
+          
+          {workflow.currentStep === 2 && workflow.selectedReport && (
+            <EditReport
+              report={workflow.selectedReport}
+              editedAnswers={workflow.editedAnswers}
+              appliedSuggestions={workflow.appliedSuggestions}
+              onUpdateAnswer={workflow.updateAnswer}
+              onApplySuggestion={workflow.applySuggestion}
+              onDismissSuggestion={workflow.dismissSuggestion}
+              onContinue={() => workflow.goToStep(3)}
+              onBack={workflow.resetWorkflow}
+            />
+          )}
+
+          {workflow.currentStep === 3 && workflow.selectedReport && (
+            <ReviewReport
+              report={workflow.selectedReport}
+              allAnswers={workflow.getAllAnswers()}
+              onContinue={() => workflow.goToStep(4)}
+              onBack={() => workflow.goToStep(2)}
+            />
+          )}
+
+          {workflow.currentStep === 4 && workflow.selectedReport && (
+            <SignatureStep
+              report={workflow.selectedReport}
+              allAnswers={workflow.getAllAnswers()}
+              patientSignature={workflow.patientSignature}
+              technicianSignature={workflow.technicianSignature}
+              onPatientSignatureChange={workflow.setPatientSignature}
+              onTechnicianSignatureChange={workflow.setTechnicianSignature}
+              onBack={() => workflow.goToStep(3)}
+              onComplete={handleComplete}
+            />
+          )}
+        </div>
+      </main>
     </div>
   );
 };
