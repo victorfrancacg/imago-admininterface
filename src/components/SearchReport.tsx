@@ -46,7 +46,7 @@ export function SearchReport({ onSelectReport }: SearchReportProps) {
     
     // Filter mock reports by CPF (in production, this would be an API call)
     const results = mockReports.filter(report => 
-      report.patient.cpf.includes(cpfSearch.replace(/\D/g, '').slice(0, 3))
+      report.patient.cpf.replace(/\D/g, '') === cpfSearch.replace(/\D/g, '')
     );
     
     setSearchResults(results);
