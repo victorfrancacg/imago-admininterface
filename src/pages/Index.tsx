@@ -5,7 +5,7 @@ import { ReviewReport } from '@/components/ReviewReport';
 import { SignatureStep } from '@/components/SignatureStep';
 import { useReportWorkflow } from '@/hooks/useReportWorkflow';
 import { toast } from '@/hooks/use-toast';
-import { FileCheck, Stethoscope } from 'lucide-react';
+import imagoLogo from '@/assets/imago-logo.png';
 
 const Index = () => {
   const workflow = useReportWorkflow();
@@ -18,16 +18,9 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b bg-card/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container flex items-center justify-between h-16">
-          <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-lg gradient-primary flex items-center justify-center">
-              <Stethoscope className="h-5 w-5 text-primary-foreground" />
-            </div>
-            <div>
-              <h1 className="font-display font-bold text-lg">Anamnese Clínica</h1>
-              <p className="text-xs text-muted-foreground">Painel do Técnico</p>
-            </div>
-          </div>
+        <div className="container flex flex-col items-center justify-center py-4">
+          <img src={imagoLogo} alt="Imago - Diagnóstico por Imagem" className="h-14 object-contain" />
+          <h1 className="font-display font-semibold text-lg text-foreground mt-2">Central de Questionário</h1>
         </div>
       </header>
 
